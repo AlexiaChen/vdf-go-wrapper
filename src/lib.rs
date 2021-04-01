@@ -2,6 +2,7 @@ extern crate libc;
 extern crate vdf;
 
 use libc::*;
+use std::ptr;
 use vdf::{VDFParams, WesolowskiVDFParams, VDF};
 
 /// WesolowskiVDF instance
@@ -60,10 +61,16 @@ pub extern "C" fn vdf_compute(
         let result = wesolowski_vdf.solve(s, difficulty);
         if result.is_ok() {
             let vec_result = result.unwrap();
+
+            // for data in &vec_result {
+            //     println!("{}  ", *data);
+            // }
+
             let mut buf = vec_result.into_boxed_slice();
             let data = buf.as_mut_ptr();
             let len = buf.len();
             std::mem::forget(buf);
+            //ptr::copy_nonoverlapping(data, (*output_solution).data, len);
             (*output_solution).data = data;
             (*output_solution).len = len;
             return 0;
@@ -107,9 +114,14 @@ mod tests {
 
         // Solve for the correct answer.  This will take a minute or two.
 
-        let result = &wesolowski_vdf.solve(b"\xaa", 10000).unwrap();
+        let result = wesolowski_vdf.solve(b"\xaa", 10000).unwrap();
+        println!("len: {}", result.len());
+
+        for data in &result {
+            println!("{}  ", *data);
+        }
 
         // Verify the answer.  This should be far faster (less than a second).
-        assert!(wesolowski_vdf.verify(b"\xaa", 10000, result).is_ok());
+        assert!(wesolowski_vdf.verify(b"\xaa", 10000, &result).is_ok());
     }
 }

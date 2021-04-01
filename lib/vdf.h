@@ -6,7 +6,7 @@
 
 typedef struct Buffer
 {
-    unsigned char *data;
+    uint8_t *data;
     size_t len;
 } Buffer;
 
