@@ -1,0 +1,14 @@
+[package]
+authors = ["MathxH Chen <brainfvck@foxmail.com>"]
+edition = "2018"
+name = "vdf-go-wrapper"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+libc = "*"
+vdf = "0.1.0"
