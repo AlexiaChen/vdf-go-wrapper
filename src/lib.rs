@@ -61,11 +61,6 @@ pub extern "C" fn vdf_compute(
         let result = wesolowski_vdf.solve(s, difficulty);
         if result.is_ok() {
             let vec_result = result.unwrap();
-
-            // for data in &vec_result {
-            //     println!("{}  ", *data);
-            // }
-
             let mut buf = vec_result.into_boxed_slice();
             let data = buf.as_mut_ptr();
             let len = buf.len();

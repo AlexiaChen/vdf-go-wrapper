@@ -41,4 +41,11 @@ func main() {
 		fmt.Println("compute failed.")
 	}
 
+	var result_verify C.int = C.vdf_verify(vdf, chellenge, 10000, *output)
+	if result_verify == 0 {
+		fmt.Println("verify success")
+	} else {
+		fmt.Println("verify failed.")
+	}
+
 }
