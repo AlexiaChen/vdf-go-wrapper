@@ -1,8 +1,10 @@
 ROOT_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
-build:
+ffi:
 	cargo build --release
 	cp target/release/libvdf_ffi.so lib/
+
+build:
 	go build -ldflags="-r $(ROOT_DIR)lib"
 
 test: 
