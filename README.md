@@ -6,7 +6,9 @@ A Verifiable Delay Function(https://github.com/poanetwork/vdf) wrapper for go
 
 ### Build VDF Rust FFI dynamic library
 
-first, you need to install the latest stable version of Rust, then run command as follows:
+if lib/libvdf_ffi.so does exist, you can skip this step and go next
+
+you need to install the latest stable version of Rust, then run command as follows:
 
 ```bash
 make ffi
