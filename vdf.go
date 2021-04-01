@@ -6,7 +6,6 @@ package vdf_go
 */
 import "C"
 import (
-	"fmt"
 	"unsafe"
 )
 
@@ -56,20 +55,8 @@ func (vdf *VDF) Execute() {
 
 	var result C.int = C.vdf_compute(vdf_wesolowski, chellenge, C.ulong(vdf.difficulty), output)
 	if result == 0 {
-		fmt.Println("compute success.")
-		// fmt.Printf("len: %v\n", output.len)
-
 		bytes := C.GoBytes(unsafe.Pointer(output.data), (C.int)(output.len))
-		// fmt.Println("toBytes: ")
-		// for _, value := range bytes {
-		// 	fmt.Printf("%v ", (byte)(value))
-		// }
-
 		copy(vdf.output[:], bytes)
-
-		//fmt.Println("")
-	} else {
-		fmt.Println("compute failed.")
 	}
 
 	go func() {
@@ -98,11 +85,6 @@ func (vdf *VDF) Verify(proof [516]byte) bool {
 	}
 
 	var result_verify C.int = C.vdf_verify(vdf_wesolowski, chellenge, C.ulong(vdf.difficulty), *output_proof)
-	if result_verify == 0 {
-		fmt.Println("verify success")
-	} else {
-		fmt.Println("verify failed.")
-	}
 
 	C.free_wesolowski_vdf(vdf_wesolowski)
 
