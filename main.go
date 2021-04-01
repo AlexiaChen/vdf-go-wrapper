@@ -31,9 +31,12 @@ func main() {
 		fmt.Printf("len: %v\n", output.len)
 
 		bytes := C.GoBytes(unsafe.Pointer(output.data), (C.int)(output.len))
-		for i := range bytes {
-			fmt.Printf("%v ", i)
+		fmt.Println("toBytes: ")
+		for _, value := range bytes {
+			fmt.Printf("%v ", (byte)(value))
 		}
+
+		fmt.Println("")
 	} else {
 		fmt.Println("compute failed.")
 	}
