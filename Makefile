@@ -10,5 +10,8 @@ build:
 test: 
 	go test -v -cover -ldflags="-r $(ROOT_DIR)lib" ./...
 
-bench: 
+gobench: 
 	go test -bench=. -benchmem  -run=none -ldflags="-r $(ROOT_DIR)lib"
+
+rustbench:
+	cargo bench --bench vdf_benchmark -- --verbose

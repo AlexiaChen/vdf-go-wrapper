@@ -110,11 +110,6 @@ mod tests {
         // Solve for the correct answer.  This will take a minute or two.
 
         let result = wesolowski_vdf.solve(b"\xaa", 10000).unwrap();
-        println!("len: {}", result.len());
-
-        for data in &result {
-            println!("{}  ", *data);
-        }
 
         // Verify the answer.  This should be far faster (less than a second).
         assert!(wesolowski_vdf.verify(b"\xaa", 10000, &result).is_ok());
