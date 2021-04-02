@@ -1,6 +1,10 @@
 # vdf-go-wrapper
 A Verifiable Delay Function(https://github.com/poanetwork/vdf) wrapper for go
 
+The project is built for bounty of [harmony.one](https://github.com/harmony-one), which is my coding test of final round interview.
+
+- Bounty issue: https://github.com/harmony-one/bounties/issues/4
+- GitCoin: https://gitcoin.co/issue/harmony-one/bounties/4/100025313
 
 ## Build & Test
 
@@ -83,7 +87,9 @@ mean   [960.19 ms 969.97 ms] std. dev.      [15.679 ms 34.025 ms]
 median [953.27 ms 964.37 ms] med. abs. dev. [10.966 ms 20.064 ms]
 ```
 
-According to the above benchmark test results, there is no order of magnitude difference in CPU performance between VDF's rust and go version, which is basically the same level. However, the memory occupation and memory allocation times of rust are much lower than that of go version, that is to say, the rust version has only memory advantage over go version
+According to the above benchmark test results, there is no order of magnitude difference in CPU performance between VDF's rust and go version, which is basically the same level. However, the memory occupation and memory allocation times of rust are much lower than that of go version, that is to say, the rust version has only memory advantage over go version.
+
+**Conclusion: so the Rust Version of VDF performance is not ideal compared with Go version from aspect of engineering. Maybe it is not a good repalcement for current VDF Go implementation**
 
 ## How to use 
 
