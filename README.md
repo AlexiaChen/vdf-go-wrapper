@@ -89,7 +89,9 @@ median [953.27 ms 964.37 ms] med. abs. dev. [10.966 ms 20.064 ms]
 
 According to the above benchmark test results, there is no order of magnitude difference in CPU performance between VDF's rust and go version, which is basically the same level. However, the memory occupation and memory allocation times of rust are much lower than that of go version, that is to say, the rust version has only memory advantage over go version.
 
-**Conclusion: so the Rust Version of VDF performance is not ideal compared with Go version from aspect of engineering. Maybe it is not a good repalcement for current VDF Go implementation**
+## Conclusion
+
+So the Rust Version of VDF performance is not ideal compared with Go version from aspect of engineering. Maybe it is not a good repalcement for current VDF Go implementation
 
 ## How to use 
 
