@@ -1,4 +1,4 @@
-module vdf-wrapper
+module github.com/AlexiaChen/vdf-go-wrapper
 
 go 1.14
 
