@@ -1,4 +1,4 @@
-package vdf_go
+package vdf_rs_wrapper
 
 /*
 #cgo LDFLAGS: -L./lib -lvdf_ffi

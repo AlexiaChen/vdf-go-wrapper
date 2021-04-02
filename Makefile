@@ -9,3 +9,6 @@ build:
 
 test: 
 	go test -v -cover -ldflags="-r $(ROOT_DIR)lib" ./...
+
+bench: 
+	go test -bench=. -benchmem  -run=none -ldflags="-r $(ROOT_DIR)lib"
