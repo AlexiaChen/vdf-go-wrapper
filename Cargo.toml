@@ -19,3 +19,8 @@ criterion = "0.3"
 [[bench]]
 harness = false
 name = "vdf_benchmark"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+panic = "abort"

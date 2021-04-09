@@ -42,15 +42,17 @@ make gobench
 Rust Wrapper Version:
 
 ```txt
-BenchmarkVDFRustGenerateAndVerify-8            1        2540105400 ns/op            2424 B/op         11 allocs/op
-BenchmarkVDFRustVerify-8                       2         918081350 ns/op             640 B/op          3 allocs/op
+BenchmarkVDFRustGenerateAndVerify-8            1        2525336300 ns/op            2424 B/op         11 allocs/op
+BenchmarkVDFRustGenerate-8                     1        1758575500 ns/op            1936 B/op          7 allocs/op
+BenchmarkVDFRustVerify-8                       2         921654200 ns/op             640 B/op          3 allocs/op
 ```
 
 Go Version:
 
 ```txt
-BenchmarkVDFGoGenerateAndVerify-8              1        21782273700 ns/op       22599506944 B/op        221367368 allocs/op
-BenchmarkVDFGoVerify-8                         3          430348500 ns/op           95602450 B/op          946134 allocs/op
+BenchmarkVDFGoGenerateAndVerify-8              1       22218883100 ns/op     22599355848 B/op        221366129 allocs/op
+BenchmarkVDFGoGenerate-8                       1       21885868400 ns/op     22204293240 B/op        217648324 allocs/op
+BenchmarkVDFGoVerify-8                         3         426695667 ns/op        95598194 B/op           946104 allocs/op
 ```
 
 Run command as follows:
@@ -87,11 +89,11 @@ mean   [960.19 ms 969.97 ms] std. dev.      [15.679 ms 34.025 ms]
 median [953.27 ms 964.37 ms] med. abs. dev. [10.966 ms 20.064 ms]
 ```
 
-According to the above benchmark test results, there is no order of magnitude difference in CPU performance between VDF's rust and go version, which is basically the same level. However, the memory occupation and memory allocation times of rust are much lower than that of go version, that is to say, the rust version has only memory advantage over go version.
+According to the above benchmark test results, The compute method of the VDF Library of the Rust version CPU performance is a higher order of magnitude than the go version, but the verify method has the same level as the go version, so in general, the rate performance of the rust is faster.
 
 ## Conclusion
 
-So the Rust Version of VDF performance is not ideal compared with Go version from aspect of engineering. Maybe it is not a good repalcement for current VDF Go implementation
+So the Rust Version of VDF could replace current go version, but it is not faster than C++ version there https://github.com/Chia-Network/chiavdf.
 
 ## How to use 
 

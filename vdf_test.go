@@ -98,6 +98,15 @@ func BenchmarkVDFRustGenerateAndVerify(b *testing.B) {
 	}
 }
 
+func BenchmarkVDFRustGenerate(b *testing.B) {
+	bytes := [32]byte{0xaa}
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		vdf := New(10000, bytes)
+		vdf.Execute()
+	}
+}
+
 func BenchmarkVDFRustVerify(b *testing.B) {
 	input := [32]byte{0xde, 0xad, 0xbe, 0xef, 0xde, 0xad, 0xbe, 0xef, 0xde, 0xad, 0xbe, 0xef, 0xde, 0xad, 0xbe,
 		0xef, 0xde, 0xad, 0xbe, 0xef, 0xde, 0xad, 0xbe, 0xef, 0xde, 0xad, 0xbe, 0xef, 0xde, 0xad, 0xbe, 0xef}
@@ -120,6 +129,15 @@ func BenchmarkVDFGoGenerateAndVerify(b *testing.B) {
 		vdf := vdf_go.New(10000, bytes)
 		vdf.Execute()
 		vdf.Verify(vdf.GetOutput())
+	}
+}
+
+func BenchmarkVDFGoGenerate(b *testing.B) {
+	bytes := [32]byte{0xaa}
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		vdf := vdf_go.New(10000, bytes)
+		vdf.Execute()
 	}
 }
 
